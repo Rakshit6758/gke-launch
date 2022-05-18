@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  db:
+    container_name: "rpaydb"
+    image: mariadb
+    hostname: db
+    networks:
+      - rpayapi
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      GET_HOST_FROM: dns
+      MARIADB_ROOT_PASSWORD: "Team@1000"
+      MARIADB_DATABASE: "rpay"
+      MARIADB_USER: "anirudh"
+      MARIADB_PASSWORD: "Team@1000"
+    command: --default-authentication-plugin=mysql_native_password
+
+  api:
+    container_name:  "rpay"
+    image: rakshitkapoor456/rakshit:latest
+    hostname: rpayapi
+    environment:
+      GET_HOSTS_FROM: dns
+    networks:
+      - rpayapi
+    ports:
+      - "8080:8080"
+    links:
+      - db
+    labels:
+      kompose.service.type: LoadBalancer
+    volumes:
+      - .:/go/src/rpayApi
+
+networks:
+  rpayapi:
+    driver: bridge
+
