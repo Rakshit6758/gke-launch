@@ -31,7 +31,7 @@ spec:
         - env:
             - name: GET_HOSTS_FROM
               value: dns
-          image: rakshitkapoor456/rakshit:latest
+          image: rakshitkapoor456/rpay_api:latest
           name: rpay
           ports:
             - containerPort: 8080

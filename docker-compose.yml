@@ -20,7 +20,7 @@ services:
 
   api:
     container_name:  "rpay"
-    image: rakshitkapoor456/rakshit:latest
+    image: rakshitkapoor456/rpay_api:latest
     hostname: rpayapi
     environment:
       GET_HOSTS_FROM: dns
