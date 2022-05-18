@@ -5,6 +5,7 @@ RUN mkdir -p /go/src/rpayApi
 WORKDIR /go/src/rpayApi
 
 COPY . /go/src/rpayApi
+COPY ./cmd/main/* /go/src/rpayApi/
 COPY main.go /main.go
 COPY entrypoint.sh /entrypoint.sh
 

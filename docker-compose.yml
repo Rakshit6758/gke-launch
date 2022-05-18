@@ -19,7 +19,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password
 
   api:
-    container_name:  "rpay"
+    container_name: "rpay"
     image: rakshitkapoor456/rpay_api:latest
     hostname: rpayapi
     environment:
